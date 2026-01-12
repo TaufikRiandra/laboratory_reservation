@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['nim'] = $user['nim'];
             $_SESSION['role'] = $user['role'];
             
-            header("Location: dashboard.php");
+            header("Location: index.php");
             exit();
         } else {
             $error = 'NIM atau password salah!';
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Redirect jika sudah login
 if (isLoggedIn()) {
-    header("Location: dashboard.php");
+    header("Location: index.php");
     exit();
 }
 ?>
@@ -74,8 +74,8 @@ if (isLoggedIn()) {
         }
         
         .logo-icon {
-            width: 80px;
-            height: 80px;
+            width: 120px;
+            height: 120px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 50%;
             display: inline-flex;
@@ -89,6 +89,11 @@ if (isLoggedIn()) {
             height: 40px;
             stroke: white;
             fill: none;
+        }
+
+        .logo-circle img {
+            width: 130px;
+            height:130px;
         }
         
         h1 {
@@ -245,17 +250,13 @@ if (isLoggedIn()) {
 <body>
     <div class="login-container">
         <div class="logo">
-            <div class="logo-icon">
-                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-                    <polyline points="10 17 15 12 10 7"></polyline>
-                    <line x1="15" y1="12" x2="3" y2="12"></line>
-                </svg>
-            </div>
+
+                <div class="logo-circle"><img src="logo unp.png" alt=""></div>
+
         </div>
         
-        <h1>Labor Reservation</h1>
-        <p class="subtitle">Sistem Peminjaman Laboratorium</p>
+        <h1>Login Mahasiswa</h1>
+        <p class="subtitle">Labor Vokasi Universitas Negeri Padang</p>
         
         <?php if ($error): ?>
             <div class="error-message">
